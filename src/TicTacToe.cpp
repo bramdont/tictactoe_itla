@@ -15,6 +15,8 @@ void init()
 		}
 	}
 
+
+
 }
 
 void clearScreen(){
@@ -36,8 +38,53 @@ bool validate(int number){
 
 bool gameover()
 {
-	//TODO: Implement this method,verify if any player has won the match of it's being a tie.
-	//Return true if the game is over. Print message informing the user about what just happened.
+    if (board [1][1] != '-' || board [2][2] != '-' || board [3][3] != '-')
+    {
+        if (board [1][1] == board [1][2] && board [1][2] == board [1][3])
+        {
+            cout << "Player " << player << " win." << endl;
+            return true;
+        }
+         else if (board [2][1] == board [2][2] && board [2][2] == board [2][3])
+        {
+            cout << "Player " << player << " win." << endl;
+            return true;
+        }
+        else if (board [3][1] == board [3][2] && board [3][2] == board [3][3])
+        {
+            cout << "Player " << player << " win." << endl;
+            return true;
+        }
+        else if (board [1][1] == board [2][1] && board [2][1] == board [3][1])
+        {
+            cout << "Player " << player << " win." << endl;
+            return true;
+        }
+        else if (board [1][2] == board [2][2] && board [2][2] == board [3][2])
+        {
+            cout << "Player " << player << " win." << endl;
+            return true;
+        }
+        else if (board [1][3] == board [2][3] && board [2][3] == board [3][3])
+        {
+            cout << "Player " << player << " win." << endl;
+            return true;
+        }
+        else if (board [1][1] == board [2][2] && board [2][2] == board [3][3])
+        {
+            cout << "Player " << player << "win." << endl;
+            return true;
+        }
+        else if (board [1][3] == board [2][2] && board [2][2] == board [3][1])
+        {
+            cout << "Player " << player << "win." << endl;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 	return false;
 }
 
