@@ -1,25 +1,36 @@
 #include "TicTacToe.h"
-#include <iostream>
 #include <cstdlib>
 using namespace std;
 
 char board[3][3]; //Possible values are X, O and _ (for blank positions)
 char player = 'X';
+int plays = 0;
+char winner;
+
+bool isAvailable(int row, int column)
+{
+	if (board[row][column] != '_' )
+	{
+	    cout << "That plays has already been done" << endl;
+	    return false;
+	}
+	return true;
+}
 
 //Give initial values to the board matrix
 void init()
 {
-	for(int i = 0 ; i < 3 ; i++){
-		for(int j = 0 ; j < 3 ; j++){
+	for(int i = 0 ; i < 3 ; i++)
+	{
+		for(int j = 0 ; j < 3 ; j++)
+		{
 			board[i][j] = '_';
 		}
 	}
-
-
-
 }
 
-void clearScreen(){
+void clearScreen()
+{
 	#ifdef _WIN32
 	system("cls");
 	#else
@@ -38,51 +49,49 @@ bool validate(int number){
 
 bool gameover()
 {
-    if (board [1][1] != '-' || board [2][2] != '-' || board [3][3] != '-')
+    plays++;
+
+    if (plays > 5)
     {
-        if (board [1][1] == board [1][2] && board [1][2] == board [1][3])
+        if (board [0][0] == board [0][1] && board [0][1] == board [0][2] && board [0][1] != '_')
         {
-            cout << "Player " << player << " win." << endl;
+            cout << "Player " << winner << " win." << endl;
             return true;
         }
-         else if (board [2][1] == board [2][2] && board [2][2] == board [2][3])
+         else if (board [1][0] == board [1][1] && board [1][1] == board [1][2] && board [1][1] != '_')
         {
-            cout << "Player " << player << " win." << endl;
+            cout << "Player " << winner << " win." << endl;
             return true;
         }
-        else if (board [3][1] == board [3][2] && board [3][2] == board [3][3])
+        else if (board [2][0] == board [2][1] && board [2][1] == board [2][2] && board [2][1] != '_')
         {
-            cout << "Player " << player << " win." << endl;
+            cout << "Player " << winner << " win." << endl;
             return true;
         }
-        else if (board [1][1] == board [2][1] && board [2][1] == board [3][1])
+        else if (board [0][0] == board [1][0] && board [1][0] == board [2][0] && board [1][0])
         {
-            cout << "Player " << player << " win." << endl;
+            cout << "Player " << winner << " win." << endl;
             return true;
         }
-        else if (board [1][2] == board [2][2] && board [2][2] == board [3][2])
+        else if (board [0][1] == board [1][1] && board [1][1] == board [2][1] && board [1][1] != '_')
         {
-            cout << "Player " << player << " win." << endl;
+            cout << "Player " << winner << " win." << endl;
             return true;
         }
-        else if (board [1][3] == board [2][3] && board [2][3] == board [3][3])
+        else if (board [0][2] == board [1][2] && board [1][2] == board [2][2] && board [1][2] != '_')
         {
-            cout << "Player " << player << " win." << endl;
+            cout << "Player " << winner << " win." << endl;
             return true;
         }
-        else if (board [1][1] == board [2][2] && board [2][2] == board [3][3])
+        else if (board [0][0] == board [1][1] && board [1][1] == board [2][2] & board [1][1] != '_')
         {
-            cout << "Player " << player << "win." << endl;
+            cout << "Player " << winner << "win." << endl;
             return true;
         }
-        else if (board [1][3] == board [2][2] && board [2][2] == board [3][1])
+        else if (board [0][2] == board [1][1] && board [1][1] == board [2][0] && board [1][1] != '_')
         {
-            cout << "Player " << player << "win." << endl;
+            cout << "Player " << winner << "win." << endl;
             return true;
-        }
-        else
-        {
-            return false;
         }
     }
 	return false;
@@ -92,6 +101,7 @@ void showBoard()
 {
 	while(!gameover())
 	{
+	    winner = player == 'X' ? 'X' : 'O';
 		clearScreen();
 		int row = 0;
 		int col = 0;
