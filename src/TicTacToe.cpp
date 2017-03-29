@@ -20,11 +20,11 @@ bool isAvailable(int row, int column)
 //Give initial values to the board matrix
 void init()
 {
-	for(int i = 0 ; i < 3 ; i++)
+	for(int row = 0 ; row < 3 ; row++)
 	{
-		for(int j = 0 ; j < 3 ; j++)
+		for(int col = 0 ; col < 3 ; col++)
 		{
-			board[i][j] = '_';
+			board[row][col] = '_';
 		}
 	}
 }
