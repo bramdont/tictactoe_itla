@@ -11,7 +11,7 @@ bool isAvailable(int row, int column)
 {
 	if (board[row][column] != '_' )
 	{
-	    cout << "That plays has already been done" << endl;
+	    cout << "That play has already been done" << endl;
 	    return false;
 	}
 	return true;
