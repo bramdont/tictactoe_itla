@@ -2,7 +2,7 @@
 #include <cstdlib>
 using namespace std;
 
-char board[3][3]; //Possible values are X, O and _ (for blank positions)
+char board[3][3]; //Possible  values  are X, O and  _ (for blank positions)
 char player = 'X';
 int plays = 0;
 char winner;
@@ -17,7 +17,7 @@ bool isAvailable(int row, int column)
 	return true;
 }
 
-//Give initial values to the board matrix
+//Give  initial values to the  board matrix
 void init()
 {
 	for(int i = 0 ; i < 3 ; i++)
@@ -34,7 +34,7 @@ void clearScreen()
 	#ifdef _WIN32
 	system("cls");
 	#else
-	system("clear");
+	system(" clear");
 	#endif
 }
 
@@ -55,12 +55,12 @@ bool gameover()
     {
         if (board [0][0] == board [0][1] && board [0][1] == board [0][2] && board [0][1] != '_')
         {
-            cout << "Player " << winner << " win." << endl;
+            cout << "Player  " << winner << "  win." << endl;
             return true;
         }
          else if (board [1][0] == board [1][1] && board [1][1] == board [1][2] && board [1][1] != '_')
         {
-            cout << "Player " << winner << " win." << endl;
+            cout << "Player  " << winner << "  win." << endl;
             return true;
         }
         else if (board [2][0] == board [2][1] && board [2][1] == board [2][2] && board [2][1] != '_')
