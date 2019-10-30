@@ -38,12 +38,12 @@ void clearScreen()
 	#endif
 }
 
-bool validate(int number){
-	if(number >= 1 && number <= 3){
+bool validate(int num){
+	if(num >= 1 && num <= 3){
 		return true;
 	}else{
 		cout << "Please pick a value between 1 and 3" << endl;
-		return  false;
+		return false;
 	}
 }
 
@@ -103,10 +103,11 @@ void showBoard()
 	{
 	    winner = player == 'X' ? 'X' : 'O';
 		clearScreen();
-		int row = 0;
-		int col = 0;
+		int r = 0;
+		int c = 0;
 
 		cout << "It's " << player << "'s turn" << endl;
+		
 		//printing column numbers
 		cout << "\t";
 		for(int i = 0 ; i < 3 ; i++)
@@ -127,14 +128,14 @@ void showBoard()
 		do
 		{
 			cout << "In what row would you like to play? =>";
-			cin >> row;
-		}while(!validate(row));
+			cin >> r;
+		}while(!validate(r));
 		do
 		{
 			cout << "In what column would you like to play? => ";
-			cin >> col;
-		}while(!validate(col));
-		board[row - 1][col - 1] = player;
+			cin >> c;
+		}while(!validate(c));
+		board[r - 1][c - 1] = player;
 		player = player == 'X' ? 'O' : 'X';
 	}
 }
